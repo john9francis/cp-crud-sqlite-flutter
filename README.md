@@ -1,16 +1,11 @@
 # cp_crud
 
-A new Flutter project.
+Simple CRUD (Create Read Update Delete) app with sqlite and flutter.
 
-## Getting Started
+# App: Contacts
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This app will allow you to:
+1. Create a contact with a name and phone number
+2. View all contacts
+3. Edit contact by either editing their name or phone number
+4. Delete a contact
