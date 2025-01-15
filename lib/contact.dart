@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Contact extends StatefulWidget{
-  const Contact({super.key});
+  final String name;
+  final int number;
+
+  const Contact({required this.name, required this.number, super.key});
 
   @override
   State<StatefulWidget> createState() => _ContactState();
@@ -12,7 +15,7 @@ class _ContactState extends State<Contact>{
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text("Hey")
+        Text("${widget.name} ${widget.number}")
       ],
     );
   }

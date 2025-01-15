@@ -12,7 +12,7 @@ class _ContactListState extends State<ContactList>{
 
   final List<Contact> entries = List.generate(
     100, 
-    (i)=> Contact());
+    (i)=> Contact(name: "John", number: i,));
 
   @override
   Widget build(BuildContext context) {
