@@ -20,33 +20,40 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: "Enter contact's name"
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Row(
+                spacing: 5,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter contact's name"
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: "Enter contact's phone number"
+                  Expanded(
+                    flex: 2,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter contact's phone number"
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    child: Text("Add"),
-                    onPressed: (){
-                      print("Button presed");
-                    }
-                  ),
-                ), 
-              ],
+                  Expanded(
+                    flex: 1,
+                    child: TextButton(
+                      child: Text("Add"),
+                      onPressed: (){
+                        print("Button presed");
+                      }
+                    ),
+                  ), 
+                ],
+              ),
             )
           ],
         )
