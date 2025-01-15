@@ -14,8 +14,22 @@ class _ContactState extends State<Contact>{
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("${widget.name} ${widget.number}")
+        Expanded(
+          child: Text(widget.name)
+        ),
+        Expanded(
+          child: Text("${widget.number}")
+        ),
+        Expanded(
+          child: TextButton(
+            onPressed: (){
+              print("Deleting");
+            },
+            child: Text("Delete"),
+          ),
+        )
       ],
     );
   }
