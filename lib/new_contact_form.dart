@@ -58,7 +58,7 @@ class _NewContactFormState extends State<NewContactForm>{
                   child: TextButton(
                     child: Text("Add"),
                     onPressed: (){
-                      print("Button presed");
+                      print("${nameController.text} ${numberController.text}");
                     }
                   ),
                 ), 
