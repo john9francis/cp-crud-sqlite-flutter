@@ -25,7 +25,7 @@ class _NewContactFormState extends State<NewContactForm>{
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          padding: EdgeInsets.all(10),
           child: Row(
             spacing: 5,
             children: [

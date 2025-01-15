@@ -13,24 +13,30 @@ class Contact extends StatefulWidget{
 class _ContactState extends State<Contact>{
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-          child: Text(widget.name)
-        ),
-        Expanded(
-          child: Text("${widget.number}")
-        ),
-        Expanded(
-          child: TextButton(
-            onPressed: (){
-              print("Deleting");
-            },
-            child: Text("Delete"),
+    return Padding(
+      padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(widget.name)
           ),
-        )
-      ],
+          Expanded(
+            flex: 2,
+            child: Text("${widget.number}")
+          ),
+          Expanded(
+            flex: 1,
+            child: TextButton(
+              onPressed: (){
+                print("Deleting");
+              },
+              child: Text("Delete"),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
