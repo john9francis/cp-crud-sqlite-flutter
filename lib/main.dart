@@ -22,23 +22,29 @@ class MyApp extends StatelessWidget {
           children: [
             Row(
               children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Enter contact's name"
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Enter contact's name"
+                    ),
                   ),
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Enter contact's phone number"
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Enter contact's phone number"
+                    ),
                   ),
                 ),
-                TextButton(
-                  child: Text("Add"),
-                  onPressed: (){
-                    print("Button presed");
-                  }
+                Expanded(
+                  child: TextButton(
+                    child: Text("Add"),
+                    onPressed: (){
+                      print("Button presed");
+                    }
+                  ),
                 ), 
               ],
             )
