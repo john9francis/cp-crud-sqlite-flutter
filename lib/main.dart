@@ -14,7 +14,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Contacts",
-      home: NewContactForm()
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Contacts"),
+        ),
+        body: Column(
+          children: [
+            NewContactForm(),
+            Scrollbar(
+              child: Text("Hello")
+            )
+          ],
+        )
+      )
     );
   }
 }
