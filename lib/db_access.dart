@@ -1,12 +1,23 @@
-
+import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+import 'package:flutter/widgets.dart';
 
 
 class DbAccess {
-  bool connect(){
+
+  static Database? theDb;
+
+  Future<bool> connect() async {
+
+    WidgetsFlutterBinding.ensureInitialized();
+
+    print(await getDatabasesPath());
+    
     return false;
   }
 
-  bool create(String name, int number){
+  Future<bool> create(String name, int number) async {
     return false;
   }
 
