@@ -10,6 +10,12 @@ This app will allow you to:
 3. Edit contact by either editing their name or phone number
 4. Delete a contact
 
+# Initializing the project
+clone the repo and then run:
+```sh
+flutter create .
+```
+
 # Testing
 ```sh
 flutter test
