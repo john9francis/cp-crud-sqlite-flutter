@@ -14,8 +14,6 @@ class _NewContactFormState extends State<NewContactForm>{
   final nameController = TextEditingController();
   final numberController = TextEditingController();
   
-  DbAccess db = DbAccess();
-
   @override
   void dispose() {
     nameController.dispose();
@@ -57,8 +55,7 @@ class _NewContactFormState extends State<NewContactForm>{
                 child: TextButton(
                   child: Text("Add"),
                   onPressed: (){
-                    db.create(nameController.text, int.parse(numberController.text));
-                    print("${nameController.text} ${numberController.text}");
+                    DbAccess.create(nameController.text, int.parse(numberController.text));
                   }
                 ),
               ), 

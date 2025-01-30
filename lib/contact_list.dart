@@ -10,9 +10,7 @@ class ContactList extends StatefulWidget {
 
 class _ContactListState extends State<ContactList>{
 
-  final List<Contact> entries = List.generate(
-    100, 
-    (i)=> Contact(name: "John", number: i,));
+  final List<Contact> entries = [];
 
   @override
   Widget build(BuildContext context) {
