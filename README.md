@@ -22,6 +22,7 @@ flutter test
 ```
 
 # Useful websites
+- [Flutter sqflite tutorial](https://docs.flutter.dev/cookbook/persistence/sqlite)
 - [Writing platform specific code](https://docs.flutter.dev/platform-integration/platform-channels)
 - [Sqflite common ffi Stack overflow](https://stackoverflow.com/questions/76158800/databasefactory-not-initialized-when-using-sqflite-in-flutter)
 - [Sqflite_common_ffi works on every platform ig](https://pub.dev/packages/sqflite_common_ffi)
