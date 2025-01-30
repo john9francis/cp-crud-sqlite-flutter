@@ -12,6 +12,17 @@ class DbAccess {
 
   static Database? theDb;
 
+  static Map<Function, Function> subscriptions = {};
+
+  static void subscribe(Function fn, Function callbackFn){
+    subscriptions[fn] = callbackFn;
+  }
+
+  static void call(Function fn, {args}){
+    fn(args);
+    subscriptions[fn]!(args);
+  }
+
   static Future<bool> _connect() async {
 
     WidgetsFlutterBinding.ensureInitialized();

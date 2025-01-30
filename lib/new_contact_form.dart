@@ -56,6 +56,9 @@ class _NewContactFormState extends State<NewContactForm>{
                   child: Text("Add"),
                   onPressed: (){
                     DbAccess.create(nameController.text, int.parse(numberController.text));
+                    String name = nameController.text;
+                    int number = int.parse(numberController.text);
+                    DbAccess.call(DbAccess.create, args: {"name": name, "number": number});
                   }
                 ),
               ), 
