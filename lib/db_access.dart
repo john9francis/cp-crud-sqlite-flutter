@@ -18,9 +18,15 @@ class DbAccess {
     subscriptions[fn] = callbackFn;
   }
 
-  static void call(Function fn, {args}){
-    fn(args);
-    subscriptions[fn]!(args);
+  static void call(Function fn, [List<dynamic>? args]){
+
+    subscriptions[fn]!();
+    
+    if (args == null){
+      fn();
+      return;
+    }
+    Function.apply(fn, args);
   }
 
   static Future<bool> _connect() async {

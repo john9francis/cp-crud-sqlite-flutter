@@ -58,7 +58,7 @@ class _NewContactFormState extends State<NewContactForm>{
                     DbAccess.create(nameController.text, int.parse(numberController.text));
                     String name = nameController.text;
                     int number = int.parse(numberController.text);
-                    DbAccess.call(DbAccess.create, args: {"name": name, "number": number});
+                    DbAccess.call(DbAccess.create, [name, number]);
                   }
                 ),
               ), 
