@@ -1,10 +1,14 @@
+import 'package:cp_crud/db_access.dart';
 import 'package:flutter/material.dart';
+
+/// This class is the contact card
 
 class Contact extends StatefulWidget{
   final String name;
   final int number;
+  final int id;
 
-  const Contact({required this.name, required this.number, super.key});
+  const Contact({required this.id, required this.name, required this.number, super.key});
 
   @override
   State<StatefulWidget> createState() => _ContactState();
@@ -29,8 +33,8 @@ class _ContactState extends State<Contact>{
           Expanded(
             flex: 1,
             child: TextButton(
-              onPressed: (){
-                print("Deleting");
+              onPressed: () {
+                DbAccess.call(DbAccess.delete, [widget.id]);
               },
               child: Text("Delete"),
             ),

@@ -90,14 +90,15 @@ class DbAccess {
     }
   }
 
-  /// Returns a list of [name, number] lists which could be null.
-  static Future<List<List<String>>?> read({int howMany=100}) async {
+  /// Returns a list of [id:int, name:String, number:int] lists which could be null.
+  static Future<List<List<dynamic>>?> read({int howMany=100}) async {
     try {
 
       List<Map<String, Object?>> contactMaps = await theDb!.query("contacts");
 
-      List<List<String>> contactList = contactMaps.map((element){
-        return [element["name"].toString(), element["number"].toString()];
+      // casting to int, string, int
+      List<List<dynamic>> contactList = contactMaps.map((element){
+        return [int.parse(element["id"].toString()), element["name"].toString(), int.parse(element["number"].toString())];
       }).toList();
 
       return contactList;
@@ -112,7 +113,17 @@ class DbAccess {
     return false;
   }
 
-  static bool delete(String name){
-    return false;
+  static Future<bool> delete(int id) async {
+    try{
+      await theDb!.delete(
+        "contacts", 
+        where: "id = ?",
+        whereArgs: [id]);
+      return true;
+    }
+    catch(err){
+      print("Error deleting: $err");
+      return false;
+    }
   }
 }

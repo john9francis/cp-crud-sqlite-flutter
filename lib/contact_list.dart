@@ -17,14 +17,15 @@ class _ContactListState extends State<ContactList> {
     super.initState();
     _loadEntries();
     DbAccess.subscribe(DbAccess.create, _loadEntries);
+    DbAccess.subscribe(DbAccess.delete, _loadEntries);
   }
 
   Future<void> _loadEntries() async {
-    List<List<String>>? dbEntries = await DbAccess.read();
+    List<List<dynamic>>? dbEntries = await DbAccess.read();
     if (dbEntries == null) return;
 
     List<Contact> newContacts = dbEntries.map((entry) {
-      return Contact(name: entry[0], number: int.parse(entry[1]));
+      return Contact(id: entry[0], name: entry[1], number: entry[2]);
     }).toList();
 
     setState(() {
