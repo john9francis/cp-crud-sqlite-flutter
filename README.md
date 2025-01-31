@@ -36,7 +36,9 @@ xattr -d com.apple.quarantine ./cp_crud
 ```
 
 # Next steps
-- [ ] Update functionality
+- [ ] add "Update" functionality
+- [ ] Get subscriptions in eventBus to be able to handle args
+- [ ] Separate dbaccess from eventbus
 - [ ] Compile for windows
 - [ ] Compile for web
 - [ ] Compile for android
