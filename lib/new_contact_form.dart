@@ -54,11 +54,15 @@ class _NewContactFormState extends State<NewContactForm>{
                 flex: 1,
                 child: TextButton(
                   child: Text("Add"),
-                  onPressed: (){
-                    DbAccess.create(nameController.text, int.parse(numberController.text));
+                  onPressed: () {
+                    // add to the database
                     String name = nameController.text;
                     int number = int.parse(numberController.text);
                     DbAccess.call(DbAccess.create, [name, number]);
+
+                    // clear out the current values
+                    nameController.clear();
+                    numberController.clear();
                   }
                 ),
               ), 

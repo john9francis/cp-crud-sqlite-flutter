@@ -18,15 +18,30 @@ class DbAccess {
     subscriptions[fn] = callbackFn;
   }
 
-  static void call(Function fn, [List<dynamic>? args]){
-
-    subscriptions[fn]!();
+  /// Now supports async functions
+  static Future<void> call(Function fn, [List<dynamic>? args]) async {
+    dynamic fnResult;
 
     if (args == null){
-      fn();
-      return;
+      fnResult = fn();
+    } 
+    else {
+      fnResult = Function.apply(fn, args);
     }
-    Function.apply(fn, args);
+
+    if (fnResult is Future){
+      await fnResult;
+    }
+
+
+    // run any result from the subscriptions
+    if (subscriptions.containsKey(fn)){
+      var subResult = subscriptions[fn]!();
+      if (subResult is Future){
+        await subResult;
+      }
+    }
+
   }
 
   static Future<bool> connect() async {
