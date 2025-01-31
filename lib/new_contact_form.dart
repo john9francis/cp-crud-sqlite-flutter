@@ -1,5 +1,6 @@
 import 'package:cp_crud/db_access.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NewContactForm extends StatefulWidget {
   const NewContactForm({super.key});
@@ -48,6 +49,7 @@ class _NewContactFormState extends State<NewContactForm>{
                     border: OutlineInputBorder(),
                     hintText: "Enter contact's phone number"
                   ),
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 ),
               ),
               Expanded(

@@ -35,6 +35,13 @@ When running, the user must first run:
 xattr -d com.apple.quarantine ./cp_crud
 ```
 
+# Next steps
+- [ ] Update functionality
+- [ ] Compile for windows
+- [ ] Compile for web
+- [ ] Compile for android
+- [ ] Compile for iphone
+
 # Useful websites
 - [Flutter sqflite tutorial](https://docs.flutter.dev/cookbook/persistence/sqlite)
 - [Writing platform specific code](https://docs.flutter.dev/platform-integration/platform-channels)
