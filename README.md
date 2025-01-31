@@ -25,6 +25,16 @@ flutter create .
 flutter test
 ```
 
+# Building for release
+macOS
+```sh
+flutter build macos --release
+```
+When running, the user must first run:
+```sh
+xattr -d com.apple.quarantine ./cp_crud
+```
+
 # Useful websites
 - [Flutter sqflite tutorial](https://docs.flutter.dev/cookbook/persistence/sqlite)
 - [Writing platform specific code](https://docs.flutter.dev/platform-integration/platform-channels)
