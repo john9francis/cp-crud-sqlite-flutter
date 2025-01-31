@@ -21,7 +21,7 @@ class DbAccess {
   static void call(Function fn, [List<dynamic>? args]){
 
     subscriptions[fn]!();
-    
+
     if (args == null){
       fn();
       return;
@@ -29,7 +29,7 @@ class DbAccess {
     Function.apply(fn, args);
   }
 
-  static Future<bool> _connect() async {
+  static Future<bool> connect() async {
 
     WidgetsFlutterBinding.ensureInitialized();
 
@@ -62,10 +62,6 @@ class DbAccess {
   }
 
   static Future<bool> create(String name, int number) async {
-    if (theDb == null){
-      print("Calling connect");
-      await _connect();
-    }
     try {
       await theDb!.insert("contacts", {
         "name": name,

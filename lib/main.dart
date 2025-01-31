@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cp_crud/new_contact_form.dart';
 import 'package:cp_crud/contact_list.dart';
+import 'package:cp_crud/db_access.dart';
 
-void main() {
+void main() async {
+  await DbAccess.connect();
   runApp(const MyApp());
 }
 
