@@ -13,14 +13,45 @@ The event bus could also have mutexes for multithreading and things if necessary
 
 the event bus code would look like:
 
-Map<fn, callbackFn> subscriptions;
+class EventBus {
 
-void call(fn, {args}){
-  fn(args);
-  subscriptions[fn]();
-}
+  static Map<Function, Function> subscriptions = {};
 
-void subscribe(fn, callbackFn){
-  subscriptions[fn] = callbackFn;
+  static void subscribe(Function fn, Function callbackFn){
+    subscriptions[fn] = callbackFn;
+  }
+
+  static void call(Function fn){
+    fn();
+    if (subscriptions.contains(fn)){
+      subscriptions[fn]!();
+    }
+  }
+
+  /// Now supports async functions
+  static Future<void> call(Function fn, [List<dynamic>? args]) async {
+    dynamic fnResult;
+
+    if (args == null){
+      fnResult = fn();
+    } 
+    else {
+      fnResult = Function.apply(fn, args);
+    }
+
+    if (fnResult is Future){
+      await fnResult;
+    }
+
+
+    // run any result from the subscriptions
+    if (subscriptions.containsKey(fn)){
+      var subResult = subscriptions[fn]!();
+      if (subResult is Future){
+        await subResult;
+      }
+    }
+
+  }
 }
 */

@@ -20,19 +20,12 @@ class DbAccess {
 
   /// Now supports async functions
   static Future<void> call(Function fn, [List<dynamic>? args]) async {
-    dynamic fnResult;
-
-    if (args == null){
-      fnResult = fn();
-    } 
-    else {
-      fnResult = Function.apply(fn, args);
-    }
+    
+    dynamic fnResult = Function.apply(fn, args);
 
     if (fnResult is Future){
       await fnResult;
     }
-
 
     // run any result from the subscriptions
     if (subscriptions.containsKey(fn)){

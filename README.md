@@ -22,11 +22,12 @@ flutter create .
 
 # Testing
 ```sh
-flutter test
+flutter run
 ```
+Note: on windows you need the sqlite3.dll in the following directory: `build/windows/x64/runner/Debug/`
 
 # Building for release
-macOS
+## macOS
 ```sh
 flutter build macos --release
 ```
@@ -34,6 +35,12 @@ When running, the user must first run:
 ```sh
 xattr -d com.apple.quarantine ./cp_crud
 ```
+
+## windows
+```sh
+flutter build windows --release
+```
+Before distribution make sure you include the sqlite3.dll in the following directory: `build/windows/x64/runner/Release/`
 
 # Next steps
 - [ ] add "Update" functionality
